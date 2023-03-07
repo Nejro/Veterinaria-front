@@ -5,6 +5,7 @@ import { Veterinaria } from 'src/app/Interfaces/veterinaria';
 import { ServicesService } from 'src/app/Servicios/services.service';
 import { NgModel } from '@angular/forms';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-veterinaria',
@@ -57,6 +58,16 @@ export class VeterinariaComponent implements OnInit {
     } else {
         alert("No se eliminó el registro");
     }
+    }
+
+    exportExcel(): void {
+      const worksheet = XLSX.utils.json_to_sheet(this.Veterinaria);
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+      const filename = 'DatosVeterinaria.xlsx';
+      XLSX.writeFile(workbook, filename);
     }
 
 }
