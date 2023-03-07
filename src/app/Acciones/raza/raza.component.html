@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="es-CO" class="html">
+<head >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <div class="titulo"> <title>VETERINARIA</title></div>
+
+</head>
+
+<body class="body">
+
+  <form [formGroup]="myForm" class = "form" (ngSubmit)="guardar(myForm)" errorTailor>
+  <div class="modal-header">
+  <div class="t">  <h4 class="modal-title" class = "titulo" id="modal-basic-title">Raza</h4>
+  </div>
+    <div class="Con_Imput">
+      <input type="number" min="0" placeholder=" id Raza" class="imp" id="nmid" formControlName="nmid" >
+  </div>
+  <div class="Con_Imput">
+    <input type="text" placeholder="Nombre de la raza " class="imp" id="nomRaz" formControlName="nomRaz" >
+  </div>
+  <div class="Con_Imput">
+    <button type="submit" >Enviar</button>
+</div>
+  </div>
+
+</form>
+<div class="con-table">
+<table id="table"
+class="table table-bordered hover table-borderless">
+<thead>
+    <tr>
+      <th style="text-align:center">id</th>
+      <th style="text-align:center">Especie</th>
+      <th style="text-align:center">Eliminar</th>
+      <th style="text-align:center">Editar</th>
+
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr style="text-align:center;"  *ngFor="let raza of Raza " >
+
+
+      <td style="margin-top: 3%;">{{raza.nmid}}</td>
+      <td style="margin-top: 3%;">{{raza.nomRaz}}</td>
+
+
+      <td style="margin-top: 3%;">
+
+    <button class="edit" mat-icon  (click)="deletee(raza.nmid)">
+      <abbr title="Eliminar" >
+             Eliminar
+      </abbr>
+  </button>
+
+  </td>
+  <td style="margin-top: 3%;">
+
+    <button class="edit" mat-icon (click)="editar(raza)" >
+      <abbr title="Editar">
+             Editar
+      </abbr>
+  </button>
+
+  </td>
+  </tr>
+</tbody></table>
+
+</div>
+
+</body>
+
+</html>
+

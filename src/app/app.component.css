@@ -1,0 +1,33 @@
+button{
+  border:none;
+  color: #8ecae6;
+  background-color: #f6f5f5;
+  padding: 0.5rem 2rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight:bold  ;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+ margin-left:7% ;
+}
+button:hover
+{
+  background-color: #FB8500;
+  color:#8ECAE6;
+}
+a{
+  text-decoration: none;
+}
+.container{
+  border-color: black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+ padding: 12px;
+
+}
+
+header{
+ background-color: #023047;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" class="html">
+<head >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <div class="titulo"> <title>VETERINARIA</title></div>
+
+</head>
+
+<body  class="body">
+  <div class="header">
+  <form [formGroup]="myForm"  class = "form" (ngSubmit)="guardar(myForm)" errorTailor>
+    <div class="modal-header">
+    <div class="t">  <h4 class="modal-title" class="titulo" id="modal-basic-title">Paciente</h4>
+    </div>
+
+    <div class="Con_Imput">
+      <input type="text" placeholder="Nombre" class="imp" name="nombreMas" formControlName="nompet">
+    </div>
+    <div class="Con_Imput">
+        <input type="date" placeholder="Fecha de nacimiento" class="imp" name="fechanacimento" formControlName="fecNac" >
+    </div>
+
+    <div class="Con_Imput">
+      <input type="date" placeholder="Fecha de registro" class="imp" name="fechategistro" formControlName="fecReg" >
+  </div>
+    <div class="Con_Imput">
+      <input type="number" min="0"  placeholder="Id especie" class="imp" name="idespecie" formControlName="nmid_esp" >
+  </div>
+
+  <div class="Con_Imput">
+    <input type="number" min="0" placeholder="Id Raza" class="imp" name="idraza" formControlName="nmid_raza" >
+</div>
+
+<div class="Con_Imput">
+  <input type="number" min="0" placeholder="Id dueño" class="imp" name="iddueno" formControlName="nmid_dueno" >
+</div>
+
+    <div class="Con_Imput">
+        <button type="submit" class="Agregar">Enviar</button>
+    </div>
+    </div>
+  </form>
+</div>
+
+<div class="con-table">
+<table id="table"
+class="table table-bordered hover table-borderless">
+
+
+<thead>
+    <tr>
+      <th style="text-align:center">Id Paciente</th>
+      <th style="text-align:center">Nombre</th>
+      <th style="text-align:center">Fecha de nacimiento</th>
+      <th style="text-align:center">Fecha Registro</th>
+      <th style="text-align:center">IdEspecie</th>
+      <th style="text-align:center">id Raza</th>
+      <th style="text-align:center">id dueño</th>
+      <th style="text-align:center">Eliminar</th>
+      <th style="text-align:center">Editar</th>
+  </tr>
+</thead>
+<tbody>
+  <tr style="text-align:center;" *ngFor="let paciente of Paciente">
+      <td style="margin-top: 3%;">{{paciente.nmid}}</td>
+      <td style="margin-top: 3%;">{{paciente.nompet}}</td>
+      <td style="margin-top: 3%;">{{paciente.fecNac}}</td>
+      <td style="margin-top: 3%;">{{paciente.fecReg}}</td>
+      <td style="margin-top: 3%;">{{paciente.nmid_esp}}</td>
+      <td style="margin-top: 3%;">{{paciente.nmid_raza}}</td>
+      <td style="margin-top: 3%;">{{paciente.nmid_dueno}}</td>
+
+      <td style="margin-top: 3%;">
+
+        <button class="edit" mat-icon (click)="deletee(paciente.nmid)" >
+          <abbr title="Opciones">
+                 Eliminar
+          </abbr>
+      </button>
+
+      </td>
+      <td style="margin-top: 3%;">
+
+        <button class="edit" mat-icon (click)="editar(paciente)">
+          <abbr title="Opciones">
+                 Editar
+          </abbr>
+      </button>
+
+      </td>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+</body>
+
+</html>
+

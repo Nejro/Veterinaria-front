@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" class="html">
+<head >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <div class="titulo"> <title>VETERINARIA</title></div>
+
+</head>
+
+<body class="body">
+
+
+  <div class="header">
+  <div class="t">  <h4 class="modal-title" class ="titulo" id="modal-basic-title">Veterinaria</h4>
+  </div>
+    <div class="Con_Imput">
+      <input type="text" id = "filter" placeholder="Buscar nom dueño.." class="imp" [(ngModel)]="filterPost" name="filterPosts">
+  </div>
+
+</div>
+
+<div class="con-table">
+<table id="table"
+class="table table-bordered hover table-borderless">
+
+
+<thead>
+    <tr>
+      <th style="text-align:center">Id Paciente</th>
+      <th style="text-align:center">Nombre</th>
+      <th style="text-align:center">Teléfono </th>
+      <th style="text-align:center">Especie</th>
+      <th style="text-align:center">Raza</th>
+      <th style="text-align:center">Nombre mascota</th>
+      <th style="text-align:center">Ciudad</th>
+      <th style="text-align:center">Dirección</th>
+      <th style="text-align:center">Eliminar</th>
+
+
+
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr style="text-align:center;" *ngFor="let veterinaria of Veterinaria | vetefilter:filterPost" >
+      <td style="margin-top: 3%;">{{veterinaria.nmid}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.nomD}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.telefono}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.nomEsp}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.nomRaz}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.nompet}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.ciudad}}</td>
+      <td style="margin-top: 3%;">{{veterinaria.direccion}}</td>
+
+
+      <td style="margin-top: 3%;">
+
+        <button class="edit" mat-icon  (click)="deletee(veterinaria.nmid)">
+          <abbr title="Eliminar" >
+                Eliminar
+          </abbr>
+      </button>
+
+  </tr>
+</tbody></table>
+
+</div>
+
+</body>
+
+</html>
+

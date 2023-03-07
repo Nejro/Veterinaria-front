@@ -1,0 +1,106 @@
+
+
+<html lang="es-CO" class="html">
+<head >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <div class="titulo"> <title>VETERINARIA</title></div>
+
+</head>
+
+<body  class="home" class="body">
+
+  <form [formGroup]="myForm" class = "form" required (ngSubmit)="guardar(myForm)" errorTailor class="form">
+  <div class="modal-header">
+  <div class="t">  <h4 class="modal-title"  class="titulo" id="modal-basic-title">Dueño</h4>
+  </div>
+  <div class="Con_Imput">
+    <input  type="text" placeholder="Nombre" class="imp" id="nombredueño"  formControlName="nomD">
+  </div>
+  <div class="Con_Imput">
+    <input type="text" placeholder="Tipo de identificación" class="imp" id="tipoid"  formControlName="tipid" >
+</div>
+<div class="Con_Imput">
+  <input type="number" min="0"  placeholder="Número de id" class="imp" id="numeroid" formControlName="nmtid" >
+</div>
+<div class="Con_Imput">
+  <input type="text" placeholder="Ciudad" class="imp" id="ciudad" formControlName="ciudad" >
+</div>
+<div class="Con_Imput">
+  <input type="text" placeholder="Dirección" class="imp" id="direccion" formControlName="direccion" >
+</div>
+<div class="Con_Imput">
+  <input type="number" placeholder="Teléfono" class="imp" id="telefono" formControlName="telefono" >
+</div>
+  <div class="Con_Imput">
+    <button type="submit">Enviar</button>
+</div>
+  </div>
+</form>
+
+<div  class="Con_Imput">
+  <input type="text" id="filter" placeholder="Buscar por nombre.." class="imp"  [(ngModel)]="filterPost" name="filterPosts" >
+</div>
+<div class="con-table">
+
+<table class = "tabla-desk" id="table"
+class="table table-bordered hover table-borderless">
+
+<thead>
+    <tr>
+      <th style="text-align:center">id</th>
+      <th style="text-align:center">Nombre</th>
+      <th style="text-align:center">Tipo de identificación</th>
+      <th style="text-align:center">Número de identificación</th>
+      <th style="text-align:center">Ciudad</th>
+      <th style="text-align:center">Dirección</th>
+      <th style="text-align:center">Teléfono</th>
+      <th style="text-align:center">Eliminar</th>
+      <th style="text-align:center">Actualizar</th>
+
+
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr style="text-align:center;"  *ngFor="let dueno of Dueno | duenofilter:filterPost"  >
+
+
+      <td style="margin-top: 3%;">{{dueno.nmid}}</td>
+      <td style="margin-top: 3%;">{{dueno.nomD}}</td>
+      <td style="margin-top: 3%;">{{dueno.tipid}}</td>
+      <td style="margin-top: 3%;">{{dueno.nmtid}}</td>
+      <td style="margin-top: 3%;">{{dueno.ciudad}}</td>
+      <td style="margin-top: 3%;">{{dueno.direccion}}</td>
+      <td style="margin-top: 3%;">{{dueno.telefono}}</td>
+
+
+      <td style="margin-top: 3%;">
+
+    <button class="edit" mat-icon (click)="deletee(dueno.nmid)">
+      <abbr title="Eliminar">
+        Eliminar
+      </abbr>
+  </button>
+
+  </td>
+  <td style="margin-top: 3%;">
+
+    <button class="edit" mat-icon (click)="editar(dueno)" >
+      <abbr title="Editar">
+             Editar
+      </abbr>
+  </button>
+
+  </td>
+  </tr>
+</tbody></table>
+
+</div>
+
+</body>
+
+</html>
+
